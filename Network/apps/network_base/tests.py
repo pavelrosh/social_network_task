@@ -35,7 +35,6 @@ class UserPostTest(TestCase):
         self.assertEqual(len(post2), 2)
 
     def test_get_user_response(self):
-        # self.client.force_authenticate(user=self.user)
         response = self.client.post(path='/api/rest-auth/registration/',
                                     data={"username": "testuserPavlo",
                                           "email": "testtest@mail.com",
@@ -56,7 +55,6 @@ class UserPostTest(TestCase):
                                     data={
                                         "content": "Hello, some content!",
                                         "likes": 0,
-                                        "user": self.user1.id
                                     })
         self.assertEqual(response.status_code, HTTP_401_UNAUTHORIZED)
 
@@ -65,7 +63,6 @@ class UserPostTest(TestCase):
                                     data={
                                         "content": "Hello, some content!",
                                         "likes": 0,
-                                        "user": self.user1.id
                                     })
         self.assertEqual(response.status_code, HTTP_201_CREATED)
 

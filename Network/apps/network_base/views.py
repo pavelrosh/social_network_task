@@ -5,6 +5,9 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class PostView(viewsets.ModelViewSet):
+    """
+    You need to put id of post to be able change amount of likes.
+    """
     queryset = Post.objects.all()
     permission_classes = (IsAuthenticated,)
     serializer_class = PostSerializer

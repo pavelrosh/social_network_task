@@ -9,8 +9,11 @@
 <li>python3 -m venv venv</li>
 <li>source venv/bin/activate</li>
 <li>pip install -r requirements</li>
+<li>cd Network</li>
+<li>python manage.py makemigrations</li>
 <li>python manage.py migrate</li>
 <li>python manage.py createsuperuser</li>
+<li>python manage.py test</li>
 <li>python manage.py runserver</li>
 </ul>
 
@@ -20,6 +23,7 @@
 <li>I've implemented JWT authentication.</li>
 <li>On registration step email verifying by emailhunter.co, I've done it with adding adapter class. You can check in adapter.py</li>
 <li>If you need to change some settings, do it via .env file.</li>
+<li>You can't see API for POST in Swagger if won't authorise there.</li>
 </ul>
 
 

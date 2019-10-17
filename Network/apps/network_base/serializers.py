@@ -5,8 +5,9 @@ from rest_framework import serializers
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ['content', 'likes']
 
     def create(self, validated_data):
-        post = Post.objects.create(**validated_data)
+        user = self.context['request'].user
+        post = Post.objects.create(**validated_data, user=user)
         return post

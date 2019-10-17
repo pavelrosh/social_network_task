@@ -12,7 +12,6 @@ class CustomUserAdapter(DefaultAccountAdapter):
                            f'&api_key={settings.API_HUNTER_KEY}')
         if response.status_code == 200:
             data = response.json()
-            print(data)
             result = data.get('data').get('result')
             if result == 'deliverable' or result == 'risky':
                 return email
