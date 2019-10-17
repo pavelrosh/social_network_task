@@ -10,8 +10,11 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
+    def __repr__(self):
+        return f"{self.email}"
+
     def __str__(self):
-        return "{}".format(self.email)
+        return f"{self.email}"
 
 
 class Post(models.Model):
