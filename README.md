@@ -19,6 +19,7 @@
 <li>You could Swagger fot testing this API, accessible by /api/docs route.</li>
 <li>I've implemented JWT authentication.</li>
 <li>On registration step email verifying by emailhunter.co, I've done it with adding adapter class. You can check in adapter.py</li>
+<li>If you need to change some settings, change it in .env file.</li>
 </ul>
 
 
