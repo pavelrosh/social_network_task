@@ -52,7 +52,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
     'allauth.socialaccount',
+    'apps.network_base',
 ]
+
+# make User model accessible for rest-auth
+AUTH_USER_MODEL = 'network_base.User'
 
 # django-allauth settings
 SITE_ID = 1
@@ -65,7 +69,6 @@ AUTHENTICATION_BACKENDS = (
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
-# ACCOUNT_ADAPTER = 'apps.megavast_base.adapter.CustomAccountAdapter'
 ACCOUNT_EMAIL_SUBJECT_PREFIX = 'social-network.com '
 CUSTOM_ACCOUNT_CONFIRM_EMAIL_URL = "/panel?key={0}"
 
@@ -114,14 +117,15 @@ EMAIL_TIMEOUT = 60
 
 WSGI_APPLICATION = 'Network.wsgi.application'
 
-REST_FRAMEWORK = {'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
-                  'DEFAULT_AUTHENTICATION_CLASSES':
-                      [
-                          'rest_framework.authentication.TokenAuthentication',
-                          'rest_framework_simplejwt.authentication.JWTAuthentication',
-                      ],
-                  }
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

@@ -1,2 +1,4 @@
 __pycache__
 venv
+.idea
+Network/apps/network_base/migrations
